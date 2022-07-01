@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ADBMS Project</title>
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/font-awesome-5/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/bootstrap-4.1/bootstrap.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='css/style.css')}}">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="index.html">
+                    <image src="{{url_for('static',filename = 'images/Neo4j-logo.png')}}" >
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li>
+                            <a href="/keyword">
+                                <i class="fa fa-search"></i>Keyword Discovery</a>
+                        </li>
+                        <li>
+                            <a href="/researcher">
+                                <i class="fa fa-list"></i>Researcher Profiling</a>
+                        </li>
+                        <li>
+                            <a href="/influencer">
+                                <i class="fa fa-user"></i>Influencing Author</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row m-t-30">
+                            <div class="col-md-12">
+                                <!-- DATA TABLE-->
+                                <div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+                                                <th>Topic</th>
+                                                <th>Author Score</th>
+                                                <th>Author Relevance</th>
+                                                <th>Collaborater Author Name</th>
+                                                <th>Collaborater Author Score</th>
+                                                <th>Collaborater Author Relevance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for res_items in list %}
+                                            <tr>
+                                                <td>{{res_items["Topic"]}}</td>
+                                                <td>{{res_items["author_score"]}}</td>
+                                                <td>{{res_items["author_relevence"]}}</td>
+                                                <td>{{res_items["name"]}}</td>
+                                                <td>{{res_items["sugg_author_score"]}}</td>
+                                                <td>{{res_items["sugg_author_relevence"]}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- END DATA TABLE-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static',filename='vendor/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/main.js')}}"></script>
+
+</body>
+
+</html>
+<!-- end document-->

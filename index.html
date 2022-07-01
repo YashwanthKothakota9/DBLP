@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ADBMS Project</title>
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/font-awesome-5/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='vendor/bootstrap-4.1/bootstrap.min.css') }}">
+    <link rel="stylesheet" media="all" href="{{ url_for('static',filename='css/style.css')}}">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="index.html">
+                    <image src="{{url_for('static',filename = 'images/Neo4j-logo.png')}}" >
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li>
+                            <a href="/keyword">
+                                <i class="fa fa-search"></i>Keyword Discovery</a>
+                        </li>
+                        <li>
+                            <a href="/researcher">
+                                <i class="fa fa-list"></i>Researcher Profiling</a>
+                        </li>
+                        <li>
+                            <a href="/influencer">
+                                <i class="fa fa-user"></i>Influencing Author</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="text-center title-1">KEYWORD DISCOVERY</h2>
+                                </div><br>
+                                <div class="form-group">
+                                                <label for="cc-payment" class="control-label mb-1">User enters any one research topic displayed on the user interface.
+                                                    Tool returns a list of authors working on that topic. The relevance estimates the
+                                                    prolificacy of the author within the whole DBLP community that has been working on that topic,
+                                                    while the score estimates the weight of that keyword among all the author’s publication records.
+                                                    This query is useful to perform expert finding on a given research topic and similar research fields</label>
+                                                                                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 class="text-center title-2">Enter Details</h3>
+                                        </div>
+                                        <hr>
+                                        <form action="" method="post" novalidate="novalidate">
+                                            <div class="form-group has-success">
+                                                <label for="cc-name" class="control-label mb-1">Enter Research Topic you want to Search</label>
+                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true">
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Please Enter Limit Value</label>
+                                                        <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" data-val="true">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <label for="select" class=" form-control-label">Select Data Order</label>
+                                                    <div class="form-group">
+                                                    <select name="select" id="select" class="form-control">
+                                                        <option value="0">Please select Order</option>
+                                                        <option value="1">ASCENDING</option>
+                                                        <option value="2">DESCENDING</option>
+                                                    </select>
+                                                </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                                    <span id="payment-button-amount">Search</span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static',filename='vendor/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='vendor/bootstrap-4.1/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/main.js')}}"></script>
+
+
+</body>
+
+</html>
